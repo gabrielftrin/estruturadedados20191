@@ -4,7 +4,9 @@
 #include <time.h>
 #include <unistd.h>
 
-char lista_sites[2][5];
+char lista_sites[10][10];
+
+void opcao();
 
 int menu(void) {
  	int opt;
@@ -21,15 +23,27 @@ int menu(void) {
 }
 
 int insere_final (){
-char nome[20], url[20];
+
+	char nome[20], url[20];
 
 	printf("Digite o nome do site: ");
 	scanf("%s", nome);
 	printf("Digite a url do site: ");
 	scanf("%s", url);
 
-	//printf("Voce digitou o nome: %s %s\n", nome,url);
+	//printf("\nVoce digitou o nome: %s\ne url %s\n", nome,url);
+	int indice=0;
+	int i,j;
+	for (i=0;i==10;i++){
+			if(strlen(lista_sites[i]) == 0){
+				indice=i;
+				break;
+		}
+	}
 
+	strcpy(lista_sites[i], nome);
+	printf("%s\n", lista_sites[i]);
+/*
 	int x,y,i,j;
 	x=0;y=0;i=1;j=0;
 
@@ -41,7 +55,7 @@ char nome[20], url[20];
 
 		printf("a lista nao esta vazia\n");
 	}
-
+*/
 	opcao(menu());
 
 }
@@ -68,7 +82,7 @@ void opcao (int op) {
 
 			  }
 		}
-	} 
+	} while (op<3);
 }
 
 void main (){
